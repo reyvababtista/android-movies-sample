@@ -1,4 +1,4 @@
-package com.rey.movies.domain
+package com.rey.movies.domain.usecase
 
 import com.rey.lib.cleanarch.domain.dto.Result
 import com.rey.lib.cleanarch.domain.dto.data
