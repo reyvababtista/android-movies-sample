@@ -10,5 +10,5 @@ internal interface MovieService {
     }
 
     @GET(MOVIES)
-    suspend fun getMovies(): Response<MovieResponseDTO>
+    suspend fun getMovies(): Response<List<MovieResponseDTO>>
 }
