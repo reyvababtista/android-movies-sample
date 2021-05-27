@@ -1,4 +1,4 @@
-package com.rey.movies.data.repository.source.remote.api.util
+package com.rey.movies.data.source.remote.api.util
 
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer

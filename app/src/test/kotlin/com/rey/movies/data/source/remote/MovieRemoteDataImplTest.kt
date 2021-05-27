@@ -1,11 +1,11 @@
-package com.rey.movies.data.repository.source.remote
+package com.rey.movies.data.source.remote
 
 import com.google.common.truth.Truth.assertThat
 import com.google.gson.Gson
 import com.rey.lib.cleanarch.domain.dto.data
-import com.rey.movies.data.repository.source.remote.api.util.enqueueResponse
-import com.rey.movies.data.source.remote.MovieRemoteDataImpl
+import com.rey.movies.data.repository.source.remote.MovieRemoteData
 import com.rey.movies.data.source.remote.api.MovieService
+import com.rey.movies.data.source.remote.api.util.enqueueResponse
 import com.rey.movies.data.source.remote.mapper.MoviesResponseMapper
 import com.rey.movies.domain.dto.MovieResponse
 import kotlinx.coroutines.runBlocking
@@ -15,7 +15,7 @@ import org.spekframework.spek2.style.gherkin.Feature
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object MovieRemoteDataTest : Spek({
+object MovieRemoteDataImplTest : Spek({
     Feature("movie remote data") {
         val gson = Gson()
         val server by memoized { MockWebServer() }
