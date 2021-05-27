@@ -7,9 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.rey.lib.cleanarch.domain.dto.Result
 import com.rey.lib.cleanarch.domain.dto.errorMessage
 import com.rey.lib.cleanarch.domain.mapper.Mapper
+import com.rey.list.domain.entity.usecase.MovieUseCase
 import com.rey.list.presentation.dto.MovieResponseUI
 import com.rey.movies.domain.dto.MovieResponse
-import com.rey.movies.domain.entity.usecase.MovieUseCase
 import com.rey.movies.external.util.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
