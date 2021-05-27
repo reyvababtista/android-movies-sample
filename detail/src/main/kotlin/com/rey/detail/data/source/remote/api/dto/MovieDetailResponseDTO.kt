@@ -1,4 +1,4 @@
-package com.rey.movies.data.source.remote.api.dto
+package com.rey.detail.data.source.remote.api.dto
 
 data class MovieDetailResponseDTO(
     val id: Int,

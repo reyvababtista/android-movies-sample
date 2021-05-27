@@ -1,4 +1,4 @@
-package com.rey.movies.domain.dto
+package com.rey.detail.domain.dto
 
 data class MovieDetailResponse(
      val id: Int,

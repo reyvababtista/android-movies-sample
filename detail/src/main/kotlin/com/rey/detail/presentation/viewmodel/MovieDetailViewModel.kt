@@ -4,12 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.rey.detail.domain.dto.MovieDetailResponse
 import com.rey.detail.domain.entity.usecase.MovieDetailUseCase
 import com.rey.detail.presentation.dto.MovieDetailResponseUI
 import com.rey.lib.cleanarch.domain.dto.Result
 import com.rey.lib.cleanarch.domain.dto.errorMessage
 import com.rey.lib.cleanarch.domain.mapper.Mapper
-import com.rey.movies.domain.dto.MovieDetailResponse
 import com.rey.movies.external.util.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
