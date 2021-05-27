@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.dynamic-feature'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 android {
     compileSdkVersion 30
@@ -45,4 +47,5 @@ android {
 
 dependencies {
     implementation project(":app")
+    kapt 'com.google.dagger:dagger-compiler:2.35.1'
 }
