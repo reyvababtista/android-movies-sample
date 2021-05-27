@@ -1,6 +1,7 @@
 package com.rey.movies.domain.dto
 
 data class MovieResponse(
-     val id: Int,
-     val poster: String
+    val id: Int,
+    val poster: String,
+    val copyright: String = ""
 )
