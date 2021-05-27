@@ -5,7 +5,7 @@ import com.rey.lib.cleanarch.data.source.remote.mapper.ResponseMapper
 import com.rey.movies.data.source.remote.api.dto.MovieResponseDTO
 import com.rey.movies.domain.dto.MovieResponse
 
-class MoviesResponseMapper(gson: Gson) :
+internal class MoviesResponseMapper(gson: Gson) :
     ResponseMapper<List<MovieResponseDTO>, List<MovieResponse>>(gson) {
     override fun map(model: List<MovieResponseDTO>): List<MovieResponse> = model.map { dto ->
         MovieResponse(dto.id, dto.poster)
