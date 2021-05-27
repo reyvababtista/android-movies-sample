@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.rey.list.databinding.FragmentMoviesBinding
 import com.rey.list.presentation.activity.MainActivity
@@ -56,8 +57,9 @@ class MoviesFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        adapter = MovieListAdapter {
-            Unit
+        adapter = MovieListAdapter { id ->
+            val direction = MoviesFragmentDirections.actionMoviesFragmentToDetailGraph(id)
+            findNavController().navigate(direction)
         }
         binding.list.adapter = adapter
         binding.list.layoutManager =

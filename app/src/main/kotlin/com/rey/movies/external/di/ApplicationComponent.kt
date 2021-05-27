@@ -1,5 +1,6 @@
 package com.rey.movies.external.di
 
+import com.rey.movies.domain.entity.usecase.AuthUseCase
 import com.rey.movies.domain.entity.usecase.MovieUseCase
 import com.rey.movies.external.di.module.*
 import dagger.Component
@@ -12,6 +13,7 @@ import javax.inject.Singleton
         MapperModule::class,
         BaseNetworkModule::class,
         NetworkModule::class,
+        LocalDataModule::class,
         RemoteDataModule::class,
         RepositoryModule::class,
         UseCaseModule::class
@@ -19,4 +21,5 @@ import javax.inject.Singleton
 )
 interface ApplicationComponent {
     fun movieUseCase(): MovieUseCase
+    fun authUseCase(): AuthUseCase
 }

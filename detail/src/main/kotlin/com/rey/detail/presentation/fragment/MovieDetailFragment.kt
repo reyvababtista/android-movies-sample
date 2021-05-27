@@ -1,22 +1,38 @@
 package com.rey.detail.presentation.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.rey.detail.databinding.FragmentMovieDetailBinding
+import com.rey.detail.external.di.DaggerDetailComponent
+import com.rey.detail.presentation.viewmodel.MovieDetailViewModel
+import com.rey.movies.AndroidApplication.Companion.appComponent
+import com.rey.movies.presentation.extension.loadFromUrl
+import com.rey.movies.presentation.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
 class MovieDetailFragment : Fragment() {
 
     @Inject
-    lateinit var viewModelProvider: ViewModelProvider
+    lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel:
+    private val viewModel: MovieDetailViewModel by viewModels {
+        viewModelFactory
+    }
 
-            private lateinit var binding: FragmentMovieDetailBinding
+    private lateinit var binding: FragmentMovieDetailBinding
+
+    private val args: MovieDetailFragmentArgs by navArgs()
+
+    override fun onAttach(context: Context) {
+        DaggerDetailComponent.factory().create(appComponent(requireContext())).inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +46,17 @@ class MovieDetailFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        viewModel.getMovieDetail(args.id)
+        initObservers()
+    }
 
+    private fun initObservers() {
+        viewModel.detail.observe(viewLifecycleOwner) { detail ->
+            with(binding) {
+                poster.loadFromUrl(detail.poster)
+                title.text = detail.title
+                summary.text = detail.summary
+            }
+        }
     }
 }

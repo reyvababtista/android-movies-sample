@@ -1,4 +1,4 @@
-package com.rey.authentication.domain.usecase.repository
+package com.rey.movies.domain.usecase.usecase.repository
 
 import com.rey.lib.cleanarch.domain.dto.Result
 

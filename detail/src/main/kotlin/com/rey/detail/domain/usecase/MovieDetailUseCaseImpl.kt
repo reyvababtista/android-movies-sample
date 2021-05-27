@@ -7,8 +7,9 @@ import com.rey.lib.cleanarch.domain.dto.suspendTryCatch
 import com.rey.movies.domain.dto.MovieDetailResponse
 import com.rey.movies.domain.entity.usecase.AuthUseCase
 import com.rey.movies.domain.entity.usecase.MovieUseCase
+import javax.inject.Inject
 
-internal class MovieDetailUseCaseImpl(
+internal class MovieDetailUseCaseImpl @Inject constructor(
     private val authUseCase: AuthUseCase,
     private val movieUseCase: MovieUseCase
 ) : MovieDetailUseCase {

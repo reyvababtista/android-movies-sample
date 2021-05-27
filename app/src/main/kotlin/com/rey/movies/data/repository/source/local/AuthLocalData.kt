@@ -1,4 +1,4 @@
-package com.rey.authentication.data.repository.source.local
+package com.rey.movies.data.repository.source.local
 
 import com.rey.lib.cleanarch.domain.dto.Result
 

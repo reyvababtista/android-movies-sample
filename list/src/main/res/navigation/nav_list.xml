@@ -7,5 +7,18 @@
     <fragment
         android:id="@+id/moviesFragment"
         android:name="com.rey.list.presentation.fragment.MoviesFragment"
-        android:label="MoviesFragment" />
+        android:label="MoviesFragment">
+        <action
+            android:id="@+id/action_moviesFragment_to_detailGraph"
+            app:destination="@id/detailGraph" />
+    </fragment>
+    <include-dynamic
+        android:id="@+id/detailGraph"
+        app:graphPackage="${applicationId}.detail"
+        app:graphResName="nav_detail"
+        app:moduleName="detail">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </include-dynamic>
 </navigation>
