@@ -1,10 +1,12 @@
 package com.rey.movies.data.repository.source.remote
 
 import com.google.common.truth.Truth.assertThat
+import com.google.gson.Gson
 import com.rey.lib.cleanarch.domain.dto.data
 import com.rey.movies.data.repository.source.remote.api.util.enqueueResponse
 import com.rey.movies.data.source.remote.MovieRemoteDataImpl
 import com.rey.movies.data.source.remote.api.MovieService
+import com.rey.movies.data.source.remote.mapper.MoviesResponseMapper
 import com.rey.movies.domain.dto.MovieResponse
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockWebServer
@@ -15,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object MovieRemoteDataTest : Spek({
     Feature("movie remote data") {
+        val gson = Gson()
         val server by memoized { MockWebServer() }
         val service: MovieService by memoized {
             Retrofit.Builder()
@@ -23,7 +26,10 @@ object MovieRemoteDataTest : Spek({
                 .build()
                 .create(MovieService::class.java)
         }
-        val remoteData: MovieRemoteData by memoized { MovieRemoteDataImpl(service) }
+        val moviesRespMapper by memoized { MoviesResponseMapper(gson) }
+        val remoteData: MovieRemoteData by memoized {
+            MovieRemoteDataImpl(service, moviesRespMapper)
+        }
 
         Scenario("get movies return movie list") {
             lateinit var result: List<MovieResponse>
@@ -37,8 +43,8 @@ object MovieRemoteDataTest : Spek({
                 }
             }
             Then("function return movie list") {
-                assertThat(result.size).isEqualTo(3)
-                assertThat(result[0].id).isEqualTo("0")
+                assertThat(result.size).isEqualTo(2)
+                assertThat(result[0].id).isEqualTo(0)
             }
         }
     }

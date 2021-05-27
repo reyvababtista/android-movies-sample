@@ -23,9 +23,9 @@ android {
 
         variant.java.srcDir("src/$variantName/kotlin")
 
-        if (variantName.toLowerCase().contains("test") && !variantName.toLowerCase().contains("common")) {
+        if (variantName.toLowerCase().contains("test")) {
             variant.java.srcDirs += "src/testCommon/kotlin"
-            variant.res.srcDirs += "src/testCommon/res"
+            variant.resources.srcDirs += "src/testCommon/resources"
         }
     }
 
@@ -68,6 +68,7 @@ dependencies {
 
     api 'com.google.android.material:material:1.3.0'
     api 'com.github.reyvababtista:clean-arch-lib:0.1.0'
+    api 'com.google.code.gson:gson:2.8.7'
     api "com.squareup.retrofit2:retrofit:$retrofit"
     api "com.squareup.retrofit2:converter-gson:$retrofit"
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
