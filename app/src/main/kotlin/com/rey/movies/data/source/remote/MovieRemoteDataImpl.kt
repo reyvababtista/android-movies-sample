@@ -7,8 +7,9 @@ import com.rey.movies.data.repository.source.remote.MovieRemoteData
 import com.rey.movies.data.source.remote.api.MovieService
 import com.rey.movies.data.source.remote.api.dto.MovieResponseDTO
 import com.rey.movies.domain.dto.MovieResponse
+import javax.inject.Inject
 
-internal class MovieRemoteDataImpl(
+internal class MovieRemoteDataImpl @Inject constructor(
     private val service: MovieService,
     private val moviesRespMapper: ResponseMapper<List<MovieResponseDTO>, List<MovieResponse>>
 ) : MovieRemoteData {

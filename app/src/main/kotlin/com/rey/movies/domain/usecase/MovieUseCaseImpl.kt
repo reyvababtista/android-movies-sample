@@ -7,8 +7,10 @@ import com.rey.movies.domain.dto.MovieResponse
 import com.rey.movies.domain.entity.addCopyright
 import com.rey.movies.domain.entity.usecase.MovieUseCase
 import com.rey.movies.domain.usecase.repository.MovieRepository
+import javax.inject.Inject
 
-internal class MovieUseCaseImpl(private val repository: MovieRepository) : MovieUseCase {
+internal class MovieUseCaseImpl @Inject constructor(private val repository: MovieRepository) :
+    MovieUseCase {
     override suspend fun getMovies(): Result<List<MovieResponse>> = suspendTryCatch {
         val response = addCopyright(repository.getMovies().data)
         Result.Success(response)
