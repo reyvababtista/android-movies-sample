@@ -30,5 +30,6 @@ class InitialFragment : Fragment() {
     private fun navigateToList() {
         val direction = InitialFragmentDirections.actionInitialFragmentToMainActivity()
         findNavController().navigate(direction)
+        requireActivity().finish()
     }
 }
