@@ -1,3 +1,4 @@
+include ':authentication'
 include ':detail'
 include ':list'
 include ':app'
