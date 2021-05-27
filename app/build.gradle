@@ -64,7 +64,7 @@ android {
             testLogging.events = ["passed", "skipped", "failed"]
         }
     }
-    dynamicFeatures = [':list']
+    dynamicFeatures = [':list', ':detail']
 }
 
 dependencies {
