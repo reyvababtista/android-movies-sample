@@ -17,5 +17,5 @@ internal interface MovieService {
     suspend fun getMovies(): Response<List<MovieResponseDTO>>
 
     @GET(MOVIE_DETAILS)
-    fun movieDetails(@Path(MOVIE_ID) id: Int): Response<MovieDetailResponseDTO>
+    suspend fun movieDetails(@Path(MOVIE_ID) movieId: Int): Response<MovieDetailResponseDTO>
 }
