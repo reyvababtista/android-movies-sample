@@ -10,6 +10,7 @@ import com.rey.movies.presentation.extension.loadFromUrl
 class MovieItemVH(private val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(item: MovieResponseUI, onClickListener: (id: Int) -> Unit) {
         binding.poster.loadFromUrl(item.poster)
+        binding.copyright.text = item.copyright
         binding.root.setOnClickListener {
             onClickListener(item.id)
         }
