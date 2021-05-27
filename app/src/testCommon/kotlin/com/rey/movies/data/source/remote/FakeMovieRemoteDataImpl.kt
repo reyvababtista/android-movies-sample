@@ -4,6 +4,7 @@ import com.rey.lib.cleanarch.domain.dto.Result
 import com.rey.lib.cleanarch.domain.dto.UNKNOWN_ERROR
 import com.rey.lib.cleanarch.domain.dto.suspendTryCatch
 import com.rey.movies.data.repository.source.remote.MovieRemoteData
+import com.rey.movies.domain.dto.MovieDetailResponse
 import com.rey.movies.domain.dto.MovieResponse
 
 class FakeMovieRemoteDataImpl(
@@ -13,5 +14,9 @@ class FakeMovieRemoteDataImpl(
     override suspend fun getMovies(): Result<List<MovieResponse>> = suspendTryCatch {
         if (throwError) throw Exception(UNKNOWN_ERROR)
         Result.Success(movieList)
+    }
+
+    override suspend fun getMovieDetail(id: Int): Result<MovieDetailResponse> {
+        TODO("Not yet implemented")
     }
 }
