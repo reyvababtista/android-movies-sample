@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.rey.list.databinding.FragmentMoviesBinding
 import com.rey.list.presentation.activity.MainActivity
 import com.rey.list.presentation.adapter.MovieListAdapter
@@ -53,6 +55,17 @@ class MoviesFragment : Fragment() {
     private fun initObservers() {
         viewModel.movies.observe(viewLifecycleOwner) {
             adapter.submitList(it)
+        }
+
+        viewModel.error.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { msg ->
+                Snackbar.make(
+                    requireContext(),
+                    binding.root,
+                    msg,
+                    BaseTransientBottomBar.LENGTH_LONG
+                ).show()
+            }
         }
     }
 

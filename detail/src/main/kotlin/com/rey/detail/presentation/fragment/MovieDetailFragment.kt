@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.rey.detail.databinding.FragmentMovieDetailBinding
 import com.rey.detail.external.di.DaggerDetailComponent
 import com.rey.detail.presentation.viewmodel.MovieDetailViewModel
@@ -56,6 +58,17 @@ class MovieDetailFragment : Fragment() {
                 poster.loadFromUrl(detail.poster)
                 title.text = detail.title
                 summary.text = detail.summary
+            }
+        }
+
+        viewModel.error.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { msg ->
+                Snackbar.make(
+                    requireContext(),
+                    binding.root,
+                    msg,
+                    BaseTransientBottomBar.LENGTH_LONG
+                ).show()
             }
         }
     }
