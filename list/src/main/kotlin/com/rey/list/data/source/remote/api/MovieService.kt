@@ -1,5 +1,6 @@
 package com.rey.list.data.source.remote.api
 
+import com.rey.list.data.source.remote.api.dto.MovieResponseDTO
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -9,5 +10,5 @@ internal interface MovieService {
     }
 
     @GET(MOVIES)
-    suspend fun getMovies(): Response<List<com.rey.list.data.source.remote.api.dto.MovieResponseDTO>>
+    suspend fun getMovies(): Response<List<MovieResponseDTO>>
 }
