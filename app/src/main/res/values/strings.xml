@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="title_movies">Movies</string>
+    <string name="title_list">Movie List</string>
+    <string name="title_detail">Movie Detail</string>
+    <string name="title_authentication">Authentication</string>
+    <string name="title_activity_test">TestActivity</string>
+</resources>

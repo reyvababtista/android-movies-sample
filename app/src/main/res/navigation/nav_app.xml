@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/moviesFragment">
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.rey.list.presentation.fragment.MoviesFragment"
+        app:moduleName="list">
+        <action
+            android:id="@+id/action_moviesFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.rey.detail.presentation.fragment.MovieDetailFragment"
+        app:moduleName="detail">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+</navigation>
