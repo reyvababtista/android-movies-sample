@@ -2,7 +2,7 @@ package com.rey.list.data.source.remote.mapper
 
 import com.google.gson.Gson
 import com.rey.lib.cleanarch.data.source.remote.mapper.ResponseMapper
-import com.rey.movies.domain.dto.MovieResponse
+import com.rey.list.domain.dto.MovieResponse
 import javax.inject.Inject
 
 internal class MoviesResponseMapper @Inject constructor(gson: Gson) :

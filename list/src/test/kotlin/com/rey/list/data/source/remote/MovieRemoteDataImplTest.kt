@@ -7,7 +7,7 @@ import com.rey.list.data.repository.source.remote.MovieRemoteData
 import com.rey.list.data.source.remote.api.MovieService
 import com.rey.list.data.source.remote.api.util.enqueueResponse
 import com.rey.list.data.source.remote.mapper.MoviesResponseMapper
-import com.rey.movies.domain.dto.MovieResponse
+import com.rey.list.domain.dto.MovieResponse
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockWebServer
 import org.spekframework.spek2.Spek

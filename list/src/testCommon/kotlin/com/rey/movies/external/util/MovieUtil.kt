@@ -1,6 +1,6 @@
 package com.rey.movies.external.util
 
-import com.rey.movies.domain.dto.MovieResponse
+import com.rey.list.domain.dto.MovieResponse
 
 object MovieUtil {
     fun generateFakeMoviesResponse(size: Int = 1): List<MovieResponse> =

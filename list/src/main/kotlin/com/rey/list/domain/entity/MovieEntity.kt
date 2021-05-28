@@ -1,6 +1,6 @@
 package com.rey.list.domain.entity
 
-import com.rey.movies.domain.dto.MovieResponse
+import com.rey.list.domain.dto.MovieResponse
 
 internal const val COPYRIGHT = "android10"
 
