@@ -1,4 +1,4 @@
-package com.rey.list.data.source.remote.remote.api.util
+package com.rey.list.data.source.remote.api.util
 
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer

@@ -7,8 +7,8 @@ import com.rey.list.data.repository.source.remote.MovieRemoteData
 import com.rey.movies.domain.dto.MovieResponse
 
 class FakeMovieRemoteDataImpl(
-    val throwError: Boolean = false,
-    val movieList: List<MovieResponse> = emptyList()
+    private val throwError: Boolean = false,
+    private val movieList: List<MovieResponse> = emptyList()
 ) : MovieRemoteData {
     override suspend fun getMovies(): Result<List<MovieResponse>> = suspendTryCatch {
         if (throwError) throw Exception(UNKNOWN_ERROR)
