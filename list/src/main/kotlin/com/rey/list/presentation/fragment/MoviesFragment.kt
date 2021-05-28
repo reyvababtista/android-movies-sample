@@ -12,9 +12,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.rey.list.databinding.FragmentMoviesBinding
-import com.rey.list.presentation.activity.MainActivity
+import com.rey.list.external.di.DaggerListComponent
 import com.rey.list.presentation.adapter.MovieListAdapter
 import com.rey.list.presentation.viewmodel.MovieViewModel
+import com.rey.movies.AndroidApplication.Companion.appComponent
 import com.rey.movies.presentation.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
@@ -31,7 +32,7 @@ class MoviesFragment : Fragment() {
     private lateinit var adapter: MovieListAdapter
 
     override fun onAttach(context: Context) {
-        (activity as MainActivity).component.inject(this)
+        DaggerListComponent.factory().create(appComponent(requireContext())).inject(this)
         super.onAttach(context)
     }
 
@@ -71,7 +72,7 @@ class MoviesFragment : Fragment() {
 
     private fun initRecyclerView() {
         adapter = MovieListAdapter { id ->
-            val direction = MoviesFragmentDirections.actionMoviesFragmentToDetailGraph(id)
+            val direction = MoviesFragmentDirections.actionMoviesFragmentToDetailFragment(id)
             findNavController().navigate(direction)
         }
         binding.list.adapter = adapter

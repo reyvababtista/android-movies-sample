@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
@@ -50,6 +51,7 @@ class MovieDetailFragment : Fragment() {
 
         viewModel.getMovieDetail(args.id)
         initObservers()
+        findNavController().currentBackStackEntry
     }
 
     private fun initObservers() {
