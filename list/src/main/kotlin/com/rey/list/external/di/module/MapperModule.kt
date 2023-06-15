@@ -5,9 +5,9 @@ import com.rey.lib.cleanarch.data.source.remote.mapper.ResponseMapper
 import com.rey.lib.cleanarch.domain.mapper.Mapper
 import com.rey.list.data.source.remote.api.dto.MovieResponseDTO
 import com.rey.list.data.source.remote.mapper.MoviesResponseMapper
+import com.rey.list.domain.dto.MovieResponse
 import com.rey.list.presentation.dto.MovieResponseUI
 import com.rey.list.presentation.mapper.MovieResponseUIMapper
-import com.rey.movies.domain.dto.MovieResponse
 import com.rey.movies.external.di.annotation.ModuleScope
 import dagger.Module
 import dagger.Provides

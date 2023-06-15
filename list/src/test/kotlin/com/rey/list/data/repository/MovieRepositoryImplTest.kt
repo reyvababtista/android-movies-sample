@@ -4,9 +4,9 @@ import com.google.common.truth.Truth.assertThat
 import com.rey.lib.cleanarch.domain.dto.UNKNOWN_ERROR
 import com.rey.lib.cleanarch.domain.dto.data
 import com.rey.lib.cleanarch.domain.dto.error
+import com.rey.list.domain.dto.MovieResponse
 import com.rey.list.domain.usecase.repository.MovieRepository
 import com.rey.movies.data.source.remote.FakeMovieRemoteDataImpl
-import com.rey.movies.domain.dto.MovieResponse
 import com.rey.movies.external.util.MovieUtil
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
