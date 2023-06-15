@@ -27,8 +27,9 @@ class MainActivity : AppCompatActivity() {
         navController = dynamicNavHostFragment.navController
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        if (navController.currentDestination?.id != navController.graph.startDestination)
+        if (navController.currentDestination?.id != navController.graph.startDestinationId)
             navController.popBackStack()
         else
             super.onBackPressed()
